@@ -1,0 +1,224 @@
+[
+    {
+        "id": "1",
+        "category": "CAMERA",
+        "total": "5",
+        "productType": "rental",
+        "productName": "Canon EOS19 Camera",
+        "shortages" : false,
+        "available": [
+            {
+                "date":"2022-03-11",
+                "name":"Canon EOS19 Camera",
+                "qty":"1",
+                "id":"1",
+                "type":"rental",
+                "from": "12:00 am",
+                "to": "1:00 am"
+            },
+            {
+                "date":"2022-03-12",
+                "name":"Canon EOS19 Camera",
+                "qty":"4",
+                "id":"1",
+                "type":"rental",
+                "from": "12:00 am",
+                "to": "3:00 am"
+            },
+            {
+                "date":"2022-03-13",
+                "name":"Canon EOS19 Camera",
+                "qty":"2",
+                "id":"1",
+                "type":"rental",
+                "from": "2:00 am",
+                "to": "4:00 am"
+            }
+        ]
+    },
+    {
+        "id": "2",
+        "category": "SITE OFFICE",
+        "total": "4",
+        "productType": "rental",
+        "productName": "Fully Insulated site office Donga",
+        "shortages" : true,
+        "available": [
+            {
+                "date":"2022-03-11",
+                "name":"Fully Insulated site office Donga",
+                "qty":"1",
+                "id":"2",
+                "type":"rental",
+                "from": "1:00 am",
+                "to": "2:00 am"
+            },
+            {
+                "date":"2022-03-12",
+                "name":"Fully Insulated site office Donga",
+                "qty":"4",
+                "id":"2",
+                "type":"rental",
+                "from": "12:00 am",
+                "to": "3:00 am"
+            },
+            {
+                "date":"2022-03-13",
+                "name":"Fully Insulated site office Donga",
+                "qty":"2",
+                "id":"2",
+                "type":"rental",
+                "from": "6:00 am",
+                "to": "8:00 am"
+            }
+        ]
+    },
+    {
+        "id": "3",
+        "category": "CONSUMABLES",
+        "total": "3",
+        "productType": "sell",
+        "productName": "AAA Batteries 5 Pack",
+        "shortages" : false,
+        "available": [
+            {
+                "date":"2022-03-14",
+                "name":"AAA Batteries 5 Pack",
+                "qty":"1",
+                "id":"3",
+                "type":"sell",
+                "from": "1:00 am",
+                "to": "3:00 am"
+            },
+            {
+                "date":"2022-03-16",
+                "name":"AAA Batteries 5 Pack",
+                "qty":"8",
+                "id":"3",
+                "type":"sell",
+                "from": "12:00 am",
+                "to": "1:00 am"
+            },
+            {
+                "date":"2022-03-19",
+                "name":"AAA Batteries 5 Pack",
+                "qty":"2",
+                "id":"3",
+                "type":"sell",
+                "from": "1:00 am",
+                "to": "5:00 am"
+            }
+        ]
+    },
+    {
+        "id": "4",
+        "category": "CHARGES",
+        "total": "10",
+        "productType": "service",
+        "productName": "Onsite Service",
+        "shortages" : false,
+        "available": [
+            {
+                "date":"2022-03-12",
+                "name":"Onsite Service",
+                "qty":"1",
+                "id":"4",
+                "type":"service",
+                "from": "1:00 am",
+                "to": "2:00 am"
+            },
+            {
+                "date":"2022-03-15",
+                "name":"Onsite Service",
+                "qty":"8",
+                "id":"4",
+                "type":"service",
+                "from": "2:00 am",
+                "to": "4:00 am"
+            },
+            {
+                "date":"2022-03-18",
+                "name":"Onsite Service",
+                "qty":"2",
+                "id":"4",
+                "type":"service",
+                "from": "12:00 am",
+                "to": "4:00 am"
+            }
+        ]
+    },
+    {
+        "id": "5",
+        "category": "JACK HAMMER",
+        "total": "12",
+        "productType": "service",
+        "productName": "ELECTRIC SCISSOR LIFT 26FT (ELECTRIC)",
+        "shortages" : true,
+        "available": [
+            {
+                "date":"2022-03-12",
+                "name":"ELECTRIC SCISSOR LIFT 26FT (ELECTRIC)",
+                "qty":"1",
+                "id":"5",
+                "type":"service",
+                "from": "12:00 am",
+                "to": "3:00 am"
+            },
+            {
+                "date":"2022-03-15",
+                "name":"ELECTRIC SCISSOR LIFT 26FT (ELECTRIC)",
+                "qty":"8",
+                "id":"5",
+                "type":"service",
+                "from": "3:00 am",
+                "to": "6:00 am"
+            },
+            {
+                "date":"2022-03-18",
+                "name":"ELECTRIC SCISSOR LIFT 26FT (ELECTRIC)",
+                "qty":"2",
+                "id":"5",
+                "type":"service",
+                "from": "6:00 am",
+                "to": "8:00 am"
+            }
+        ]
+    },
+    {
+        "id": "6",
+        "category": "COMPUTER",
+        "total": "9",
+        "productType": "sell",
+        "productName": "Desktop",
+        "shortages" : true,
+        "available": [
+            {
+                "date":"2022-03-12",
+                "name":"Desktop",
+                "qty":"1",
+                "id":"6",
+                "type":"sell",
+                "from": "12:00 pm",
+                "to": "3:00 pm"
+            },
+            {
+                "date":"2022-03-15",
+                "name":"Desktop",
+                "qty":"8",
+                "id":"6",
+                "type":"sell",
+                "from": "5:00 pm",
+                "to": "6:00 pm"
+            },
+            {
+                "date":"2022-03-18",
+                "name":"Desktop",
+                "qty":"2",
+                "id":"6",
+                "type":"sell",
+                "from": "10:00 am",
+                "to": "12:00 pm"
+            }
+        ]
+    }
+]

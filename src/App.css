@@ -1,38 +1,95 @@
-.App {
-  text-align: center;
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.product-table{
+  font-size: 14px;
+}
+.switch input { 
+    display:none;
+}
+.switch {
+    display:inline-block;
+    width:60px;
+    height:30px;
+    margin:8px;
+    /*transform:translateY(50%);*/
+    position:relative;
+}
+.slider {
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    border-radius:30px;
+    box-shadow:0 0 0 2px #777, 0 0 4px #777;
+    cursor:pointer;
+    border:4px solid transparent;
+    overflow:hidden;
+     transition:.4s;
+}
+.slider:before {
+    position:absolute;
+    content:"";
+    width:100%;
+    height:100%;
+    background:#777;
+    border-radius:30px;
+    transform:translateX(-30px);
+    transition:.4s;
+}
+input:checked + .slider:before {
+    transform:translateX(30px);
+    background:#198754;
+}
+input:checked + .slider {
+    box-shadow:0 0 0 2px #198754,0 0 2px #198754;
+}
+.switch.flat .slider {
+ box-shadow:none;
+}
+.switch.flat .slider:before {
+  background:#FFF;
+}
+.switch.flat input:checked + .slider:before {
+ background:white;
+}
+.switch.flat input:checked + .slider {
+  background:limeGreen;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.itam_names{
+  background: #f2f4f4 !important; 
+  color: #555 !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.radio-toolbar input[type="radio"] {
+  opacity: 0;
+  position: fixed;
+  width: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.radio-toolbar label {
+    display: inline-block;
+    background-color: #198754;
+    padding: 8px 8px;
+    font-family: sans-serif, Arial;
+    font-size: 14px;
+    /* border: 2px solid #444; */
+    border-radius: 4px;
+    color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.radio-toolbar label:hover {
+  /*background-color: #dfd;*/
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.radio-toolbar input[type="radio"]:focus + label {
+    /*border: 2px dashed #444;*/
+}
+
+.radio-toolbar input[type="radio"]:checked + label {
+    background-color: darkgreen;
+    /*border-color: #4c4;*/
 }
