@@ -6,9 +6,10 @@
         "productType": "rental",
         "productName": "Canon EOS19 Camera",
         "shortages" : false,
+        "times":"",
         "available": [
             {
-                "date":"2022-03-11",
+                "date":"2022-03-17",
                 "name":"Canon EOS19 Camera",
                 "qty":"1",
                 "id":"1",
@@ -17,7 +18,7 @@
                 "to": "1:00 am"
             },
             {
-                "date":"2022-03-12",
+                "date":"2022-03-18",
                 "name":"Canon EOS19 Camera",
                 "qty":"4",
                 "id":"1",
@@ -26,7 +27,7 @@
                 "to": "3:00 am"
             },
             {
-                "date":"2022-03-13",
+                "date":"2022-03-19",
                 "name":"Canon EOS19 Camera",
                 "qty":"2",
                 "id":"1",
@@ -43,9 +44,10 @@
         "productType": "rental",
         "productName": "Fully Insulated site office Donga",
         "shortages" : true,
+        "times":"",
         "available": [
             {
-                "date":"2022-03-11",
+                "date":"2022-03-17",
                 "name":"Fully Insulated site office Donga",
                 "qty":"1",
                 "id":"2",
@@ -54,16 +56,16 @@
                 "to": "2:00 am"
             },
             {
-                "date":"2022-03-12",
+                "date":"2022-03-18",
                 "name":"Fully Insulated site office Donga",
                 "qty":"4",
                 "id":"2",
                 "type":"rental",
                 "from": "12:00 am",
-                "to": "3:00 am"
+                "to": "4:00 am"
             },
             {
-                "date":"2022-03-13",
+                "date":"2022-03-19",
                 "name":"Fully Insulated site office Donga",
                 "qty":"2",
                 "id":"2",
@@ -80,9 +82,10 @@
         "productType": "sell",
         "productName": "AAA Batteries 5 Pack",
         "shortages" : false,
+        "times":"",
         "available": [
             {
-                "date":"2022-03-14",
+                "date":"2022-03-19",
                 "name":"AAA Batteries 5 Pack",
                 "qty":"1",
                 "id":"3",
@@ -91,16 +94,16 @@
                 "to": "3:00 am"
             },
             {
-                "date":"2022-03-16",
+                "date":"2022-03-21",
                 "name":"AAA Batteries 5 Pack",
-                "qty":"8",
+                "qty":"1",
                 "id":"3",
                 "type":"sell",
                 "from": "12:00 am",
                 "to": "1:00 am"
             },
             {
-                "date":"2022-03-19",
+                "date":"2022-03-23",
                 "name":"AAA Batteries 5 Pack",
                 "qty":"2",
                 "id":"3",
@@ -117,9 +120,10 @@
         "productType": "service",
         "productName": "Onsite Service",
         "shortages" : false,
+        "times":"",
         "available": [
             {
-                "date":"2022-03-12",
+                "date":"2022-03-17",
                 "name":"Onsite Service",
                 "qty":"1",
                 "id":"4",
@@ -128,7 +132,7 @@
                 "to": "2:00 am"
             },
             {
-                "date":"2022-03-15",
+                "date":"2022-03-20",
                 "name":"Onsite Service",
                 "qty":"8",
                 "id":"4",
@@ -137,7 +141,7 @@
                 "to": "4:00 am"
             },
             {
-                "date":"2022-03-18",
+                "date":"2022-03-24",
                 "name":"Onsite Service",
                 "qty":"2",
                 "id":"4",
@@ -154,9 +158,10 @@
         "productType": "service",
         "productName": "ELECTRIC SCISSOR LIFT 26FT (ELECTRIC)",
         "shortages" : true,
+        "times":"",
         "available": [
             {
-                "date":"2022-03-12",
+                "date":"2022-03-18",
                 "name":"ELECTRIC SCISSOR LIFT 26FT (ELECTRIC)",
                 "qty":"1",
                 "id":"5",
@@ -165,7 +170,7 @@
                 "to": "3:00 am"
             },
             {
-                "date":"2022-03-15",
+                "date":"2022-03-19",
                 "name":"ELECTRIC SCISSOR LIFT 26FT (ELECTRIC)",
                 "qty":"8",
                 "id":"5",
@@ -174,7 +179,7 @@
                 "to": "6:00 am"
             },
             {
-                "date":"2022-03-18",
+                "date":"2022-03-21",
                 "name":"ELECTRIC SCISSOR LIFT 26FT (ELECTRIC)",
                 "qty":"2",
                 "id":"5",
@@ -191,9 +196,10 @@
         "productType": "sell",
         "productName": "Desktop",
         "shortages" : true,
+        "times":"",
         "available": [
             {
-                "date":"2022-03-12",
+                "date":"2022-03-17",
                 "name":"Desktop",
                 "qty":"1",
                 "id":"6",
@@ -202,7 +208,7 @@
                 "to": "3:00 pm"
             },
             {
-                "date":"2022-03-15",
+                "date":"2022-03-20",
                 "name":"Desktop",
                 "qty":"8",
                 "id":"6",
@@ -211,7 +217,7 @@
                 "to": "6:00 pm"
             },
             {
-                "date":"2022-03-18",
+                "date":"2022-03-22",
                 "name":"Desktop",
                 "qty":"2",
                 "id":"6",

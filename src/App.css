@@ -93,3 +93,26 @@ input:checked + .slider {
     background-color: darkgreen;
     /*border-color: #4c4;*/
 }
+
+.tooltip1:hover {
+  cursor: pointer;
+  position: relative;
+}
+.custom-span-text {
+  display: none;
+}
+.tooltip1:hover .custom-span-text {
+  border: #000 2px solid;
+  padding: 5px 20px 5px 5px;
+  display: block;
+  z-index: 100;
+  background: #fff;
+  position: absolute;
+  top: -4px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: normal;
+  color: #65707d;
+  margin-top: -16px;
+  margin-left: -75px;
+}
