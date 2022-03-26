@@ -12,6 +12,7 @@ function App() {
   const [pType,setPtype]=useState();
   const [showProduct,setShowProduct]=useState(false);
   const [showHours,setShowHours]=useState(true);
+  const [product,setProduct]=useState('All');
 
   let textInput = React.createRef();
   let dateInput = React.createRef();
@@ -183,6 +184,32 @@ function App() {
   const handleDayPeriod=(event)=>{
     var days = event.target.value;
     var date = dateInput.current.value;
+    const hours = [
+      {'times': '12:00 am'},
+      {'times': '1:00 am'},
+      {'times': '2:00 am'},
+      {'times': '3:00 am'},
+      {'times': '4:00 am'},
+      {'times': '5:00 am'},
+      {'times': '6:00 am'},
+      {'times': '7:00 am'},
+      {'times': '8:00 am'},
+      {'times': '9:00 am'},
+      {'times': '10:00 am'},
+      {'times': '11:00 am'},
+      {'times': '12:00 pm'},
+      {'times': '1:00 pm'},
+      {'times': '2:00 pm'},
+      {'times': '3:00 pm'},
+      {'times': '4:00 pm'},
+      {'times': '5:00 pm'},
+      {'times': '6:00 pm'},
+      {'times': '7:00 pm'},
+      {'times': '8:00 pm'},
+      {'times': '9:00 pm'},
+      {'times': '10:00 pm'},    
+      {'times': '11:00 pm'}
+    ];
     fetch(`${process.env.PUBLIC_URL}/data/product.json`)
     .then(function(response){
       return response.json();
@@ -213,9 +240,32 @@ function App() {
           loopDays.push({'dates': moment(loopDay).format("ddd, D MMM"), 'availables': avalables1});
           loopDates.push(moment(loopDay).format("YYYY-MM-DD"));
         }
+        setShowHours(false);
+        myJson.forEach((d, j) => {
+          myJson[j]['hours'] = hours
+        });
+        setData(myJson)
+        setProduct('All');
+      }else if(days === '30'){
+        for (let n = 1; n <= days; n++){
+          loopDates.push(moment(date).add(n, "days").format("YYYY-MM-DD"));
+          loopDays.push({'dates': moment(date).add(n, "days").format("ddd, D MMM"), 'availables': avalables1});
+        }
+        setShowHours(true);
+        setShowProduct(false);
+        myJson.forEach((d, j) => {
+          myJson[j]['hours'] = []
+        });
+        setData(myJson)
+        setProduct('All');
       }else{
         if(days === '7'){
           setShowProduct(true)
+          setShowHours(false);
+          myJson.forEach((d, j) => {
+            myJson[j]['hours'] = hours
+          });
+          setData(myJson)
         }else{
           setShowProduct(false)
         }
@@ -325,21 +375,18 @@ function App() {
         setShowHours(false);
       }else if(event.target.value === 'All'){
         filterData.push(d)
-        setShowHours(true);
+        setShowHours(false);
       }
     });
-    filterData.forEach((d) => {
-      hours.forEach((h, i) => {
-        hours[i]['productName'] = d.productName
-        hours[i]['total'] = d.total
-        hours[i]['id'] = d.id
-      });
+    filterData.forEach((d, j) => {
+      filterData[j]['hours'] = hours
     });
     if(event.target.value === "All"){
       setData(filterData)
     }else{
-      setData(hours)
+      setData(filterData)
     }
+    setProduct(event.target.value);
   }
 
   return (
@@ -412,8 +459,8 @@ function App() {
         </div>
         {showProduct ? <div>
           <label htmlFor="dayPeriod">Days period</label>
-          <select id="dayPeriod" onChange={handleProducts}>
-            <option value="All">Select Product</option>
+          <select id="dayPeriod" value={product} onChange={handleProducts}>
+            <option value="All">All</option>
             <option value="Canon EOS19 Camera">Canon EOS19 Camera</option>
             <option value="Fully Insulated site office Donga">Fully Insulated site office Donga</option>
             <option value="AAA Batteries 5 Pack">AAA Batteries 5 Pack</option>
@@ -428,8 +475,8 @@ function App() {
           <table className="product-table">
             <thead>
               <tr>
-                {showHours ? <th style={{'width':'15%'}}>Product Name</th>
-                : <th style={{'width':'15%'}}>Hours</th> }
+                <th style={{'width':'15%'}}>Product Name</th>
+                {showHours ? null : <th style={{'width':'5%'}}>Hours</th> }
                 {
                   months && months.length>0 && months.map((val,i) =>(
                   <td key={i}>{val.dates}</td>
@@ -440,35 +487,65 @@ function App() {
             <tbody>
             {
               data && data.length>0 && data.map((value,index) =>(
-              <tr key={index}>
-              {value.times !== "" ? (
-                <td className="itam_names">{value.times}</td>):(<td className="itam_names">{value.productName}</td>)
-              }
-              {
-                months && months.length>0 && months.map((num, j)=> 
-                num.availables && num.availables.length > 0 ? 
-                num.availables.map((num1, k)=> 
-                value.id === num1.p_id ? (
-                value.times !== "" ? (
-                  moment(value.times, 'hh:mm a') >= moment(num1.fromT, 'hh:mm a') && moment(value.times, 'hh:mm a') <= moment(num1.toT, 'hh:mm a') ? (
-                    <td className="tooltip1" key={k} style={{backgroundColor: num1.colors, 'color': 'white'}} title={'Available:'+num1.count+' Total:'+value.total}>
-                    {num1.fullTime !== "" ? (
-                     <span className="custom-span-text"><strong>Time: </strong>{num1.fullTime} <strong>Hours: </strong>{num1.hours}</span>
-                    ) : (null)}
-                    {num1.count}<br/>({value.total})
-                    </td>
-                  ) : (<td key={k} style={{backgroundColor: '#66B132', 'color': 'white'}} title={'Available:'+num1.count+' Total:'+value.total}>
-                    {value.total}<br/>({value.total})
-                    </td>)
-                ): (<td key={k} style={{backgroundColor: num1.colors, 'color': 'white'}} title={'Available:'+num1.count+' Total:'+value.total}>
-                    {num1.count}<br/>({value.total})
-                    </td>)
-                )
-                : (null))
-                : <td key={j} style={{'backgroundColor': '#66B132', 'color': 'white'}} title={'Available:'+value.total+' Total:'+value.total}>{value.total}<br/>({value.total})</td>
-                )
-              }
+              value.hours && value.hours.length>0 ?
+              value.hours.map((value1,index1) =>
+              <tr key={index1}>
+                {index1 === 0 ? (<td className="itam_names"><strong>{value.productName}</strong></td>):(<td className="itam_names"></td>)}
+                <td>{value1.times}</td>
+                {
+                  months && months.length>0 && months.map((num, j)=> 
+                  num.availables && num.availables.length > 0 ? 
+                  num.availables.map((num1, k)=> 
+                  value.id === num1.p_id ? (
+                  value1.times !== "" ? (
+                    moment(value1.times, 'hh:mm a') >= moment(num1.fromT, 'hh:mm a') && moment(value1.times, 'hh:mm a') <= moment(num1.toT, 'hh:mm a') ? (
+                      <td className="tooltip1" key={k} style={{backgroundColor: num1.colors, 'color': 'white'}} title={'Available:'+num1.count+' Total:'+value.total}>
+                      {num1.fullTime !== "" ? (
+                       <span className="custom-span-text"><strong>Time: </strong>{num1.fullTime} <strong>Hours: </strong>{num1.hours}</span>
+                      ) : (null)}
+                      {num1.count}<br/>({value.total})
+                      </td>
+                    ) : (<td key={k} style={{backgroundColor: '#66B132', 'color': 'white'}} title={'Available:'+num1.count+' Total:'+value.total}>
+                      {value.total}<br/>({value.total})
+                      </td>)
+                  ): (<td key={k} style={{backgroundColor: num1.colors, 'color': 'white'}} title={'Available:'+num1.count+' Total:'+value.total}>
+                      {num1.count}<br/>({value.total})
+                      </td>)
+                  )
+                  : (null))
+                  : <td key={j} style={{'backgroundColor': '#66B132', 'color': 'white'}} title={'Available:'+value.total+' Total:'+value.total}>{value.total}<br/>({value.total})</td>
+                  )
+                }
               </tr>
+              ) : (
+              <tr key={index}>
+                <td className="itam_names"><strong>{value.productName}</strong></td>
+                {
+                  months && months.length>0 && months.map((num, j)=> 
+                  num.availables && num.availables.length > 0 ? 
+                  num.availables.map((num1, k)=> 
+                  value.id === num1.p_id ? (
+                  value.times !== "" ? (
+                    moment(value.times, 'hh:mm a') >= moment(num1.fromT, 'hh:mm a') && moment(value.times, 'hh:mm a') <= moment(num1.toT, 'hh:mm a') ? (
+                      <td className="tooltip1" key={k} style={{backgroundColor: num1.colors, 'color': 'white'}} title={'Available:'+num1.count+' Total:'+value.total}>
+                      {num1.fullTime !== "" ? (
+                       <span className="custom-span-text"><strong>Time: </strong>{num1.fullTime} <strong>Hours: </strong>{num1.hours}</span>
+                      ) : (null)}
+                      {num1.count}<br/>({value.total})
+                      </td>
+                    ) : (<td key={k} style={{backgroundColor: '#66B132', 'color': 'white'}} title={'Available:'+num1.count+' Total:'+value.total}>
+                      {value.total}<br/>({value.total})
+                      </td>)
+                  ): (<td key={k} style={{backgroundColor: num1.colors, 'color': 'white'}} title={'Available:'+num1.count+' Total:'+value.total}>
+                      {num1.count}<br/>({value.total})
+                      </td>)
+                  )
+                  : (null))
+                  : <td key={j} style={{'backgroundColor': '#66B132', 'color': 'white'}} title={'Available:'+value.total+' Total:'+value.total}>{value.total}<br/>({value.total})</td>
+                  )
+                }
+              </tr>
+              )
               ))
             }
             </tbody>
